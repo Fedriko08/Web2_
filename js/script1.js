@@ -48,3 +48,29 @@ ScrollReveal().reveal('video', { origin: 'left' });
 ScrollReveal().reveal('.text-section', { origin: 'right' });
 ScrollReveal().reveal('.container', { origin: 'bottom' });
 
+function adjustLayout() {
+    const videos = document.querySelectorAll('video');
+    const textSections = document.querySelectorAll('.text-section');
+
+    // Atur lebar video agar lebih kecil pada layar kecil
+    if (window.innerWidth < 768) { // Jika layar lebih kecil dari 768px
+        videos.forEach(video => {
+            video.style.width = '100%';
+        });
+        textSections.forEach(section => {
+            section.style.width = '100%';
+            section.style.padding = '10px';
+        });
+    } else { // Jika layar lebih besar atau sama dengan 768px
+        videos.forEach(video => {
+            video.style.width = '600px';
+        });
+        textSections.forEach(section => {
+            section.style.width = '500px';
+        });
+    }
+}
+
+// Panggil fungsi saat halaman dimuat dan saat jendela diubah ukurannya
+window.addEventListener('load', adjustLayout);
+window.addEventListener('resize', adjustLayout);

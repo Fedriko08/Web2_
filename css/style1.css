@@ -392,3 +392,21 @@ h3, p, h4 {
     }
 }
 
+@media (max-width: 768px) {
+    /* Mengubah ukuran video dan elemen teks untuk layar kecil */
+    .home-video video {
+        width: 100%;
+    }
+
+    .text-section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Mengatur ulang margin dan padding */
+    section.code, section.code1, section.code2 {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 1rem 2%;
+    }
+}
