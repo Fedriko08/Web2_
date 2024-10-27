@@ -403,6 +403,13 @@ h3, p, h4 {
         padding: 10px;
     }
 
+    .judul {
+        margin-bottom: -700px;
+    }
+
+    
+
+
     /* Mengatur ulang margin dan padding */
     section.code, section.code1, section.code2 {
         margin-top: 0;

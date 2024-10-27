@@ -71,6 +71,17 @@ function adjustLayout() {
     }
 }
 
-// Panggil fungsi saat halaman dimuat dan saat jendela diubah ukurannya
-window.addEventListener('load', adjustLayout);
-window.addEventListener('resize', adjustLayout);
+document.addEventListener("DOMContentLoaded", function() {
+    function adjustLayout() {
+        const containers = document.querySelectorAll('.container');
+        const isMobile = window.innerWidth <= 768;
+
+        containers.forEach(container => {
+            container.style.gap = isMobile ? '2rem' : '5rem'; // Jarak antar elemen di dalam container
+        });
+    }
+
+    adjustLayout();
+    window.addEventListener('resize', adjustLayout); // Sesuaikan layout saat ukuran layar berubah
+});
+
