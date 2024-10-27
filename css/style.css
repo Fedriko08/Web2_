@@ -72,23 +72,39 @@ section {
 }
 
 /*---------------------Drop Down----------------------*/
+.navbar {
+    display: flex; /* Menjaga navbar tetap horizontal */
+    align-items: center; /* Vertikal center */
+}
+
 .dropdown {
     position: relative; /* Mengatur posisi relatif untuk dropdown */
 }
 
 .dropdown-content {
-    display: none; /* Menyembunyikan dropdown secara default */
-    position: absolute; /* Mengatur posisi dropdown */
+    display: none;
+    position: absolute;
+    top: 100%; /* Agar dropdown muncul tepat di bawah navbar */
+    left: 0;
+    margin: 0; /* Hilangkan margin */
+    padding: 0; /* Hilangkan padding */
     background-color: var(--bg-color);
-    min-width: 200px; /* Lebar minimum dropdown */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Bayangan dropdown */
-    z-index: 1; /* Mengatur z-index agar dropdown muncul di atas */
-    left: 0; /* Menyelaraskan dropdown dengan sisi kiri dari dropdown */
-    padding-top: 10px;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
 }
 
 .dropdown:hover .dropdown-content {
     display: block; /* Menampilkan dropdown saat hover pada .dropdown */
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block; /* Tampilkan dropdown saat ada interaksi */
 }
 /*--------------------END----------------------*/
 

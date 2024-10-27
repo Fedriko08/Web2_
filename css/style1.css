@@ -72,8 +72,6 @@ section {
     color: var(--main-color); /* Mengubah warna saat hover atau aktif */
 }
 
-
-
 /*---------------------Drop Down----------------------*/
 .navbar {
     display: flex; /* Menjaga navbar tetap horizontal */
@@ -85,18 +83,29 @@ section {
 }
 
 .dropdown-content {
-    display: none; /* Menyembunyikan dropdown secara default */
-    position: absolute; /* Mengatur posisi dropdown */
+    display: none;
+    position: absolute;
+    top: 100%; /* Agar dropdown muncul tepat di bawah navbar */
+    left: 0;
+    margin: 0; /* Hilangkan margin */
+    padding: 0; /* Hilangkan padding */
     background-color: var(--bg-color);
-    min-width: 200px; /* Lebar minimum dropdown */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Bayangan dropdown */
-    z-index: 1; /* Mengatur z-index agar dropdown muncul di atas */
-    left: 0; /* Menyelaraskan dropdown dengan sisi kiri dari dropdown */
-    padding-top: 10px;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
 }
 
 .dropdown:hover .dropdown-content {
     display: block; /* Menampilkan dropdown saat hover pada .dropdown */
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block; /* Tampilkan dropdown saat ada interaksi */
 }
 /*--------------------END----------------------*/
 
@@ -109,7 +118,7 @@ section {
 
 /*===================================================================*/
 h1 {
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
     color: var(--main-color);
 }
@@ -118,29 +127,30 @@ section.code {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: -300px;
-    margin-top: -750px;
+    margin-bottom: -250px;
+    margin-top: -700px;
 }
 
 section.code1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: -300px;
+    margin-bottom: -250px;
 }
 
 section.code2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: auto;
+    margin-bottom: -50px;
 }
 
 .container {
     background: var(--second-bg-color);
     width: 100%;
     padding: 20px;
-    display: flex
+    display: flex;
+    border-radius: 20px;
 }
 
 video {
@@ -150,9 +160,7 @@ video {
 h2 {
     padding: 10px;
     font-size: 30px;
-
 }
-
 
 
 .text-section {
@@ -339,6 +347,19 @@ h3, p, h4 {
 }
 
 @media  (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;   
+    }
+    
+    .home-video {
+        order: -1; /* Menempatkan video di atas text-section */
+    }
+
+    .text-section {
+        order: 1; /* Menempatkan teks di bawah video */
+    }
+
     #menu-icon {
         display: block;
     }
@@ -365,12 +386,37 @@ h3, p, h4 {
         margin: 3rem 0;
     }
 
-}
-
-@media  (max-width: 450px) {
-    html {
-        font-size: 50%;
+    .home-video video {
+        width: 100%;
     }
+
+    .text-section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .judul {
+        margin-bottom: -550px;
+        font-size: 10px;
+    }
+
+    .container {
+        margin-bottom: 0;
+    }
+
+    /* Mengatur ulang margin dan padding */
+    section.code, section.code1 {
+        margin-top: 0;
+        margin-bottom: -50px;
+        padding: 1rem 2%;
+    }
+
+    section.code2 {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 1rem 2%; 
+    }
+
 }
 
 @media  (max-width: 365px) {
@@ -389,31 +435,6 @@ h3, p, h4 {
     .footer p {
         text-align: center;
         margin-top: 2rem;
-    }
+    }  
 }
 
-@media (max-width: 768px) {
-    /* Mengubah ukuran video dan elemen teks untuk layar kecil */
-    .home-video video {
-        width: 100%;
-    }
-
-    .text-section {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .judul {
-        margin-bottom: -700px;
-    }
-
-    
-
-
-    /* Mengatur ulang margin dan padding */
-    section.code, section.code1, section.code2 {
-        margin-top: 0;
-        margin-bottom: 0;
-        padding: 1rem 2%;
-    }
-}
